@@ -1,0 +1,76 @@
+
+
+
+
+
+<!-- <div class="w-3/12 bg-red-700">
+    <img [src]="productDetails.image" class="w-full" alt="Product Image">
+</div>
+<div class="w-9/12 bg-yellow-400">
+    <div class="content">
+        <h2>{{productDetails.title}}</h2>
+        <p>{{productDetails.description}}</p>
+    </div>
+</div> -->
+
+
+
+
+
+<div class="shadow shadow-slate-700 w-10/12 mx-auto">
+
+
+
+    <div class="flex gap-3 border p-10 bg-gray -500 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+
+        <div class="w-1/4">
+            <img class="rounded-t-lg w-full" [src]="productDetails.image" alt="Product Image" />
+        </div>
+
+        <div class="p-5 ms-10 w-3/4 flex items-center">
+
+            <div >
+            
+                <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{productDetails.title}}</h2>
+                
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{productDetails.description}}</p>
+                <h3 class="uppercase font-bold mb-3 text-gray-900 dark:text-gray-400">{{productDetails.category}}</h3>
+
+
+                <div class="flex justify-between text-gray-700 my-5 text-xl"> 
+                    <span>{{ productDetails.price }} EGP</span>
+
+                    <div>
+                        <div class="flex items-center">
+
+
+                            @for (star of stars; track $index) {
+    @if (productDetails.rating.rate >= star) {
+      <span class="text-yellow-400 text-2xl">★</span>
+    } @else if (productDetails.rating.rate >= star - 0.5 && productDetails.rating.rate < star) {
+      <span class="text-yellow-400 text-2xl">⯨</span> <!-- Half star placeholder -->
+    } @else {
+      <span class="text-gray-300 text-2xl">☆</span>
+    }
+  }
+
+
+
+                            <span class="ml-2 text-sm text-gray-500">{{ productDetails.rating.rate }}</span>
+                            <span class="ml-2 text-sm text-gray-500">({{ productDetails.rating.count }})</span>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+                <div (click)="addToCart(productDetails.id)" class="flex justify-center items-center text-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    Add Product
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
